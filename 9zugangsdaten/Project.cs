@@ -15,10 +15,6 @@ namespace _9zugangsdaten
 
         public Project(String projectPathName)
         {
-            if (!ZdFiles.Any())
-            {
-                Console.WriteLine("################ DHASOIDHASIODH IOASHD #################");
-            }
             foreach (String Path in Program.Paths)
             {
                 if (Directory.Exists(projectPathName + "/" + Path)) {

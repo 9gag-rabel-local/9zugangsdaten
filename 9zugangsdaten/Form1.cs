@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using System.IO;
+using System.Diagnostics;
 
 namespace _9zugangsdaten
 {
@@ -21,7 +22,9 @@ namespace _9zugangsdaten
         {
             InitializeComponent();
 
-            String[] ProjectFolders = Directory.GetDirectories("//vm1/media/workspace/projekte/"); // should be Program.RootDir
+            openInExplorer.BackgroundImage = Image.FromFile("../../graphic/folder.png");
+
+            String[] ProjectFolders = Directory.GetDirectories(Program.RootDir);
             Array.Sort(ProjectFolders);
             foreach (String ProjectFolderName in ProjectFolders)
             {
@@ -29,7 +32,7 @@ namespace _9zugangsdaten
                 Project NewProject = new Project(ProjectFolderName);
                 if (NewProject.ZdFiles.Any())
                 {
-                    treeView1.Nodes.Add(new TreeNode(ProjectName));
+                    projectExplorer.Nodes.Add(new TreeNode(ProjectName));
                     Projects.Add(ProjectName, NewProject);
                 }
                 
@@ -50,7 +53,7 @@ namespace _9zugangsdaten
                 int pos = 0;
                 foreach (String ZdFile in Project.ZdFiles.SelectMany(i => i))
                 {
-                    fileSelector.Items.Insert(pos++, ZdFile);
+                    fileSelector.Items.Insert(pos++, ZdFile.Substring(Program.RootDir.Length, ZdFile.Length - Program.RootDir.Length));
                 }
 
                 fileSelector.SelectedIndex = 0;
@@ -65,7 +68,12 @@ namespace _9zugangsdaten
 
         private void fileSelector_SelectedIndexChanged(object sender, EventArgs e)
         {
-            zugangsdaten.Text = File.ReadAllText(fileSelector.Text);
+            zugangsdaten.Text = File.ReadAllText(Program.RootDir + "/" + fileSelector.Text);
+        }
+
+        private void openInExplorer_Click(object sender, EventArgs e)
+        {
+            Process.Start("explorer.exe", Program.RootDirWin + projectExplorer.SelectedNode.Text);
         }
     }
 }

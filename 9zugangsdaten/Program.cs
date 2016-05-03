@@ -12,6 +12,8 @@ namespace _9zugangsdaten
 
         public static String RootDir;
 
+        public static String RootDirWin;
+
         public static List<String> Paths;
 
         /// <summary>
@@ -21,6 +23,7 @@ namespace _9zugangsdaten
         static void Main()
         {
             RootDir = ConfigurationManager.AppSettings["RootDir"];
+            RootDirWin = RootDir.Replace("/", "\\");
             Paths = new List<String>(ConfigurationManager.AppSettings["paths"].Split(new char[] { ';' }));
 
             Application.EnableVisualStyles();

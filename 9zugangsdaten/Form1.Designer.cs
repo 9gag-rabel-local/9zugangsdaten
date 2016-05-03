@@ -28,18 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.projectExplorer = new System.Windows.Forms.TreeView();
             this.zugangsdaten = new System.Windows.Forms.TextBox();
             this.fileSelector = new System.Windows.Forms.ComboBox();
+            this.openInExplorer = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // treeView1
+            // projectExplorer
             // 
-            this.treeView1.Location = new System.Drawing.Point(3, 5);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(195, 470);
-            this.treeView1.TabIndex = 0;
-            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            this.projectExplorer.Location = new System.Drawing.Point(3, 5);
+            this.projectExplorer.Name = "projectExplorer";
+            this.projectExplorer.Size = new System.Drawing.Size(195, 470);
+            this.projectExplorer.TabIndex = 0;
+            this.projectExplorer.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // zugangsdaten
             // 
@@ -57,20 +58,30 @@
             this.fileSelector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.fileSelector.FormattingEnabled = true;
             this.fileSelector.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fileSelector.Location = new System.Drawing.Point(204, 5);
+            this.fileSelector.Location = new System.Drawing.Point(229, 6);
             this.fileSelector.Name = "fileSelector";
-            this.fileSelector.Size = new System.Drawing.Size(674, 21);
+            this.fileSelector.Size = new System.Drawing.Size(356, 21);
             this.fileSelector.TabIndex = 2;
             this.fileSelector.SelectedIndexChanged += new System.EventHandler(this.fileSelector_SelectedIndexChanged);
+            // 
+            // openInExplorer
+            // 
+            this.openInExplorer.Location = new System.Drawing.Point(204, 5);
+            this.openInExplorer.Name = "openInExplorer";
+            this.openInExplorer.Size = new System.Drawing.Size(23, 23);
+            this.openInExplorer.TabIndex = 3;
+            this.openInExplorer.UseVisualStyleBackColor = true;
+            this.openInExplorer.Click += new System.EventHandler(this.openInExplorer_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(890, 477);
+            this.ClientSize = new System.Drawing.Size(592, 477);
+            this.Controls.Add(this.openInExplorer);
             this.Controls.Add(this.fileSelector);
             this.Controls.Add(this.zugangsdaten);
-            this.Controls.Add(this.treeView1);
+            this.Controls.Add(this.projectExplorer);
             this.Name = "Form1";
             this.Text = "9zugangsdaten";
             this.ResumeLayout(false);
@@ -80,9 +91,10 @@
 
         #endregion
 
-        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.TreeView projectExplorer;
         private System.Windows.Forms.TextBox zugangsdaten;
         private System.Windows.Forms.ComboBox fileSelector;
+        private System.Windows.Forms.Button openInExplorer;
     }
 }
 
