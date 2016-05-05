@@ -14,6 +14,8 @@ namespace _9zugangsdaten
 
         public static String RootDirWin;
 
+        public static String Version;
+
         public static List<String> Paths;
 
         /// <summary>
@@ -22,8 +24,9 @@ namespace _9zugangsdaten
         [STAThread]
         static void Main()
         {
-            RootDir = ConfigurationManager.AppSettings["RootDir"];
+            RootDir = ConfigurationManager.AppSettings["rootDir"];
             RootDirWin = RootDir.Replace("/", "\\");
+            Version = ConfigurationManager.AppSettings["version"];
             Paths = new List<String>(ConfigurationManager.AppSettings["paths"].Split(new char[] { ';' }));
 
             Application.EnableVisualStyles();
