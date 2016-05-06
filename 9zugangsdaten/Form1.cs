@@ -48,7 +48,9 @@ namespace _9zugangsdaten
 
             if (Project.ZdFiles.Count > 0)
             {
-                zugangsdaten.Text = File.ReadAllText(Project.ZdFiles[0][0]);
+                String zugangsdatenText = Project.ZdFiles[0][0];
+                Byte[] UTF8Bytes = Encoding.UTF8.GetBytes(zugangsdatenText);
+                zugangsdaten.Text = File.ReadAllText(Encoding.UTF8.GetString(UTF8Bytes));
 
                 int pos = 0;
                 foreach (String ZdFile in Project.ZdFiles.SelectMany(i => i))
