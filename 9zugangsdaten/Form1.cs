@@ -21,9 +21,13 @@ namespace _9zugangsdaten
         public Form1()
         {
             InitializeComponent();
-
-            openInExplorer.BackgroundImage = Image.FromFile("../../graphic/folder.png");
-
+            
+            if (!Directory.Exists(Program.RootDir))
+            {
+                MessageBox.Show("Der Projekte-Ordner unter " + Program.RootDir + " konnte nicht gefunden werden.", "VM1 Projekte nicht gefunden!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                System.Environment.Exit(1);
+            }
+            
             String[] ProjectFolders = Directory.GetDirectories(Program.RootDir);
             Array.Sort(ProjectFolders);
             foreach (String ProjectFolderName in ProjectFolders)
@@ -35,12 +39,11 @@ namespace _9zugangsdaten
                     projectExplorer.Nodes.Add(new TreeNode(ProjectName));
                     Projects.Add(ProjectName, NewProject);
                 }
-                
             }
             
         }
 
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        private void projectExplorer_AfterSelect(object sender, TreeViewEventArgs e)
         {
             Project Project = Projects[e.Node.Text];
 
@@ -59,13 +62,7 @@ namespace _9zugangsdaten
                 }
 
                 fileSelector.SelectedIndex = 0;
-
             }
-        }
-
-        private void zugangsdaten_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void fileSelector_SelectedIndexChanged(object sender, EventArgs e)
@@ -77,5 +74,6 @@ namespace _9zugangsdaten
         {
             Process.Start("explorer.exe", Program.RootDirWin + projectExplorer.SelectedNode.Text);
         }
+        
     }
 }
