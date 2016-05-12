@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Configuration;
 using System.IO;
 using System.Diagnostics;
+using System.Net;
 
 namespace _9zugangsdaten
 {
@@ -21,13 +22,33 @@ namespace _9zugangsdaten
         public Form1()
         {
             InitializeComponent();
-            
+
+            openInExplorer.BackgroundImage = Image.FromFile("../../graphic/folder.png");
+
+            // Prüfen ob VM1 Projekte gefunden werden
             if (!Directory.Exists(Program.RootDir))
             {
                 MessageBox.Show("Der Projekte-Ordner unter " + Program.RootDir + " konnte nicht gefunden werden.", "VM1 Projekte nicht gefunden!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 System.Environment.Exit(1);
             }
-            
+
+            // Version Check
+            using (System.Net.WebClient client = new WebClient())
+            {
+                try
+                {
+                    String LatestVersion = client.DownloadString("http://9gag.rabel.local/9zugangsdaten/version.txt");
+                    if (LatestVersion != Program.Version)
+                    {
+                        this.Text += " (Outdated!)";
+                    }
+                }
+                catch (Exception e)
+                {
+
+                }
+            }
+
             String[] ProjectFolders = Directory.GetDirectories(Program.RootDir);
             Array.Sort(ProjectFolders);
             foreach (String ProjectFolderName in ProjectFolders)

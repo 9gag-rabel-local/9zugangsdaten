@@ -77,7 +77,6 @@ namespace _9zugangsdaten
             this.openInExplorer.Size = new System.Drawing.Size(46, 44);
             this.openInExplorer.TabIndex = 3;
             this.openInExplorer.UseVisualStyleBackColor = true;
-            this.openInExplorer.BackgroundImage = Image.FromFile("../../graphic/folder.png");
             this.openInExplorer.Click += new System.EventHandler(this.openInExplorer_Click);
             // 
             // Form1
