@@ -24,7 +24,7 @@ namespace _9zugangsdaten
         {
             RootDir = ConfigurationManager.AppSettings["rootDir"];
             RootDirWin = RootDir.Replace("/", "\\");
-            Version = ConfigurationManager.AppSettings["version"];
+            Version = Application.ProductVersion.Substring(0, 5);
             Paths = new List<String>(ConfigurationManager.AppSettings["paths"].Split(new char[] { ';' }));
 
             Application.EnableVisualStyles();
