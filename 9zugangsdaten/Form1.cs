@@ -22,8 +22,8 @@ namespace _9zugangsdaten
         public Form1()
         {
             InitializeComponent();
-
-            openInExplorer.BackgroundImage = Image.FromFile("../../graphic/folder.png");
+            
+            this.Text = this.Text + " " + Program.Version;
 
             // Prüfen ob VM1 Projekte gefunden werden
             if (!Directory.Exists(Program.RootDir))
@@ -43,10 +43,7 @@ namespace _9zugangsdaten
                         this.Text += " (Outdated!)";
                     }
                 }
-                catch (Exception e)
-                {
-
-                }
+                catch (Exception) {}
             }
 
             String[] ProjectFolders = Directory.GetDirectories(Program.RootDir);
@@ -95,6 +92,10 @@ namespace _9zugangsdaten
         {
             Process.Start("explorer.exe", Program.RootDirWin + projectExplorer.SelectedNode.Text);
         }
-        
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

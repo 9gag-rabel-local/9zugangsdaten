@@ -39,22 +39,20 @@ namespace _9zugangsdaten
             // 
             // projectExplorer
             // 
-            this.projectExplorer.Location = new System.Drawing.Point(6, 10);
-            this.projectExplorer.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.projectExplorer.Location = new System.Drawing.Point(3, 5);
             this.projectExplorer.Name = "projectExplorer";
-            this.projectExplorer.Size = new System.Drawing.Size(386, 900);
+            this.projectExplorer.Size = new System.Drawing.Size(195, 470);
             this.projectExplorer.TabIndex = 0;
             this.projectExplorer.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.projectExplorer_AfterSelect);
             // 
             // zugangsdaten
             // 
-            this.zugangsdaten.Location = new System.Drawing.Point(408, 62);
-            this.zugangsdaten.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.zugangsdaten.Location = new System.Drawing.Point(204, 32);
             this.zugangsdaten.Multiline = true;
             this.zugangsdaten.Name = "zugangsdaten";
             this.zugangsdaten.ReadOnly = true;
             this.zugangsdaten.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.zugangsdaten.Size = new System.Drawing.Size(758, 848);
+            this.zugangsdaten.Size = new System.Drawing.Size(381, 443);
             this.zugangsdaten.TabIndex = 1;
             // 
             // fileSelector
@@ -62,38 +60,37 @@ namespace _9zugangsdaten
             this.fileSelector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.fileSelector.FormattingEnabled = true;
             this.fileSelector.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fileSelector.Location = new System.Drawing.Point(458, 12);
-            this.fileSelector.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.fileSelector.Location = new System.Drawing.Point(229, 6);
             this.fileSelector.Name = "fileSelector";
-            this.fileSelector.Size = new System.Drawing.Size(708, 33);
+            this.fileSelector.Size = new System.Drawing.Size(356, 21);
             this.fileSelector.TabIndex = 2;
             this.fileSelector.SelectedIndexChanged += new System.EventHandler(this.fileSelector_SelectedIndexChanged);
             // 
             // openInExplorer
             // 
-            this.openInExplorer.Location = new System.Drawing.Point(408, 10);
-            this.openInExplorer.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.openInExplorer.Image = global::_9zugangsdaten.Properties.Resources.folder;
+            this.openInExplorer.Location = new System.Drawing.Point(204, 5);
             this.openInExplorer.Name = "openInExplorer";
-            this.openInExplorer.Size = new System.Drawing.Size(46, 44);
+            this.openInExplorer.Size = new System.Drawing.Size(23, 23);
             this.openInExplorer.TabIndex = 3;
             this.openInExplorer.UseVisualStyleBackColor = true;
             this.openInExplorer.Click += new System.EventHandler(this.openInExplorer_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 917);
+            this.ClientSize = new System.Drawing.Size(592, 477);
             this.Controls.Add(this.openInExplorer);
             this.Controls.Add(this.fileSelector);
             this.Controls.Add(this.zugangsdaten);
             this.Controls.Add(this.projectExplorer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "9zugangsdaten " + Program.Version;
+            this.Text = "9zugangsdaten";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
